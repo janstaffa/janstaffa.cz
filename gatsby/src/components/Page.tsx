@@ -14,7 +14,6 @@ export const Page: React.FC<PageProps> = ({
   const pageWrap = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const onScroll = () => {
-      if (!pageWrap.current || !page.current) return;
       const bounding = pageWrap.current.getBoundingClientRect();
 
       if (bounding.y <= 0) {
@@ -28,8 +27,8 @@ export const Page: React.FC<PageProps> = ({
     return () => document.removeEventListener('scroll', onScroll);
   }, []);
   return (
-    <div className="relative w-screen" ref={pageWrap} style={{ height }}>
-      <div className="relative w-full h-full" ref={page} style={style || {}}>
+    <div className="page-wrap" ref={pageWrap} style={{ height }}>
+      <div className="page" ref={page} style={style || {}}>
         {children}
       </div>
     </div>

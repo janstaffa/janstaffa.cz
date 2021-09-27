@@ -1,31 +1,29 @@
 {
-  "name": "janstaffa.ct",
-  "description": "My personal portfolio website.",
-  "version": "1.0.0",
-  "author": "janstaffa",
-  "dependencies": {
-    "gatsby": "^1.9.119",
-    "gatsby-link": "^1.6.28",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-typescript": "^1.4.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "keywords": [
-    "gatsby, typescript"
-  ],
-  "main": "n/a",
+  "name": "next",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/three": "^0.132.1",
+    "autoprefixer": "^10.3.6",
+    "babel": "^6.23.0",
+    "babel-preset-next": "^1.4.0",
+    "next": "^11.1.2",
+    "postcss": "^8.3.8",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "tailwindcss": "^2.2.16",
+    "three": "^0.132.2"
   },
   "devDependencies": {
-    "@types/node": "^8.0.7",
-    "@types/react": "^17.0.24",
-    "@types/react-dom": "0.14.23",
-    "@types/react-helmet": "^6.1.2",
-    "prettier": "^1.8.2"
+    "@types/react": "17.0.24",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.3"
   }
 }
