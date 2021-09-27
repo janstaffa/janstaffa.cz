@@ -1,6 +1,21 @@
+import { graphql } from 'gatsby';
 import * as React from 'react';
 import { Page } from '../components/Page';
 import { HomePage } from '../components/sections/HomePage';
+import '../styles/App.css';
+import '../styles/global.css';
+
+// Please note that you can use https://github.com/dotansimha/graphql-code-generator
+// to generate all types from graphQL schema
+// interface IndexPageProps {
+//   data: {
+//     site: {
+//       siteMetadata: {
+//         title: string;
+//       };
+//     };
+//   };
+// }
 
 const App: React.FC = () => {
   const pages = React.useRef<HTMLDivElement[]>([]);
@@ -42,3 +57,12 @@ const App: React.FC = () => {
   );
 };
 export default App;
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

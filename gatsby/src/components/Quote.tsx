@@ -60,9 +60,5 @@ export const Quote: React.FC<QuoteProps> = () => {
     main();
   }, []);
 
-  return (
-    <p id="quote" className="mt-5 text-3xl font-consolas text-secondary">
-      {currentQuote}
-    </p>
-  );
+  return <p className="main-quote">{currentQuote}</p>;
 };
