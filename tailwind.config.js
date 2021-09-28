@@ -2,13 +2,23 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      consolas: ['consolas'],
-      rubik: ['Rubik', 'sans-serif'],
-    },
-    textColor: {
-      heading: '#ffffff',
-      secondary: '#a0a0a0',
+    extend: {
+      fontFamily: {
+        consolas: ['consolas'],
+        rubik: ['Rubik', 'sans-serif'],
+      },
+      colors: {
+        primary: '#339989',
+        secondary: 'rgba(83, 121, 156, 1)',
+        dark: {
+          100: '#131515',
+          200: '#2b2c28',
+        },
+        light: {
+          100: '#fffafb',
+          200: '#a0a0a0',
+        },
+      },
     },
   },
   variants: {

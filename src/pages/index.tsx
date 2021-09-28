@@ -1,28 +1,21 @@
 import * as React from 'react';
 import { Page } from '../components/Page';
+import { AboutPage } from '../components/sections/AboutPage';
 import { HomePage } from '../components/sections/HomePage';
 
 const App: React.FC = () => {
-  const pages = React.useRef<HTMLDivElement[]>([]);
   return (
     <main>
+      <div className="page-border border-top"></div>
+      <div className="page-border border-bottom"></div>
+      <div className="page-border border-left"></div>
+      <div className="page-border border-right"></div>
+
       <Page style={{ zIndex: 1 }}>
         <HomePage />
       </Page>
       <Page style={{ zIndex: 2 }}>
-        <div
-          style={{
-            backgroundColor: '#111',
-            height: '100%',
-            boxShadow: '0px -5px 10px 5px rgba(0,0,0,0.4)',
-          }}
-        >
-          <h1>page 2</h1>
-          <img
-            src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__480.jpg"
-            alt=""
-          />
-        </div>
+        <AboutPage />
       </Page>
       <Page style={{ zIndex: 3 }}>
         <div style={{ backgroundColor: '#181818', height: '100%' }}>
