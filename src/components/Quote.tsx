@@ -9,6 +9,9 @@ const quotes = [
   'a stargate fan',
   'a fullstack developer',
   'a future millionaire ;)',
+  'a windows user, but linux lover',
+  'a ben awad fan',
+  'a typescript addict',
 ];
 const getRandomQuote = () => {
   const idx = Math.floor(Math.random() * quotes.length);
@@ -61,7 +64,10 @@ export const Quote: React.FC<QuoteProps> = () => {
   }, []);
 
   return (
-    <p id="quote" className="mt-5 text-3xl font-consolas text-secondary">
+    <p
+      id="quote"
+      className="mt-5 text-3xl font-consolas text-light-200 w-96 h-20"
+    >
       {currentQuote}
     </p>
   );

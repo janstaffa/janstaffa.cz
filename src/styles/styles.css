@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html, body {
+   padding: 0;
+   margin: 0;
+   overflow-x: hidden;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: #2B2C28;
+}
+
+::-webkit-scrollbar-thumb {
+   background: #131515;
+   border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #1a1d1d;
+}
+
+#home-page {
+   background-image: url('/back.png');
+   /* ,linear-gradient(90deg, rgba(24, 24, 24, 1) 0%, rgba(24, 24, 24, 1) 40%, rgba(83, 121, 156, 0.4) 100%); */
+   background-color: #181818;
+}
+
+#about-page {
+   background: radial-gradient(circle, rgba(83, 121, 156, 0.8) 0%, #181818 40%);
+}
+
+#quote:after {
+   content: '';
+   width: 15px;
+   height: 25px;
+   margin-left: 2px;
+   background: #a0a0a0;
+   opacity: 0;
+   display: inline-block;
+   animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+   50% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 1;
+   }
+}
+
+.custom-j:before {
+   content: 'j';
+   position: absolute;
+   color: #339989;
+   height: .3em;
+   overflow: hidden;
+}
+
+.btn-wrap {
+   position: relative;
+   margin: 0 10px;
+   border-radius: 23px;
+   padding: 3px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.main-btn-border {
+   display: block;
+   position: absolute;
+   transform-origin: center center;
+   width: 100%;
+   padding-top: 100%;
+   /* ^^^ sets height equal width*/
+   background: rgb(83, 121, 156);
+   background: linear-gradient(90deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+   animation: rotate linear 5s infinite;
+}
+
+@keyframes rotate {
+   0% {
+      transform: rotate(0deg)
+   }
+   25% {
+      transform: rotate(90deg)
+   }
+   75% {
+      transform: rotate(-90deg)
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
+.main-btn {
+   position: relative;
+   padding: 5px 10px;
+   border-radius: 20px;
+   font-size: 20px;
+   font-family: 'consolas';
+   background: rgb(51, 153, 137);
+   background: linear-gradient(90deg, rgba(51, 153, 137, 1) 26%, rgba(83, 121, 156, 1) 62%);
+   transition: 0.2s all ease;
+   background-size: 150% 100%;
+}
+
+.main-btn:hover {
+   background-position: 100%;
+}
+
+.animation-wrap {
+   background: radial-gradient(circle, rgba(83, 121, 156, 0.6) 0%, transparent 40%);
+}
+
+.page-border {
+   --border-width: 15px;
+   position: fixed;
+   z-index: 100;
+}
+
+.border-top {
+   width: 100vw;
+   height: var(--border-width);
+   top: 0;
+   background: linear-gradient(90deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+}
+
+.border-bottom {
+   width: 100vw;
+   height: var(--border-width);
+   bottom: 0;
+   background: linear-gradient(-90deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+}
+
+.border-left {
+   height: 100vh;
+   width: var(--border-width);
+   left: 0;
+   background: linear-gradient(180deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+}
+
+.border-right {
+   height: 100vh;
+   width: var(--border-width);
+   right: 0;
+   background: linear-gradient(0deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+}
