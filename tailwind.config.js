@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        consolas: ['consolas'],
+        consolas: ['Consolas'],
         rubik: ['Rubik', 'sans-serif'],
       },
       colors: {

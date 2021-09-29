@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import { AtomAnimation } from '../animations/LandingAnimation';
+import { AtomAnimation } from '../animations/AtomAnimation';
 import { Quote } from '../Quote';
 
 export const HomePage: React.FC = () => {
@@ -13,14 +13,13 @@ export const HomePage: React.FC = () => {
         id="home-page"
         className="w-full h-full flex flex-row justify-between select-none"
       >
-        {/* <BackAnimation /> */}
-        <div className="px-20 py-32 z-10">
+        <div className="px-20 py-32 z-10 fade-in fade-fast">
           <h1 className="text-8xl text-light-100 font-rubik">
             <span className="custom-j">j</span>anstaffa
             <span className="text-primary">.</span>
           </h1>
           <Quote />
-          <div className="w-full mt-24 flex flex-row justify-center">
+          <div className="w-full mt-10 flex flex-row">
             <div className="btn-wrap">
               <div className="main-btn-border"></div>
               <button

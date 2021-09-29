@@ -8,7 +8,7 @@ export const AtomAnimation: React.FC = () => {
   //constants
   const electronRadius = 0.15;
   const electronOpacity = 0.8;
-  const coreOpacity = 0.8;
+  const coreOpacity = 0.9;
 
   //materials
   const electronMaterial = new THREE.MeshStandardMaterial({
@@ -148,7 +148,7 @@ export const AtomAnimation: React.FC = () => {
   }, []);
   return (
     <div
-      className="animation-wrap z-0 absolute flex flex-col justify-center items-center w-full h-full"
+      className="animation-wrap z-0 flex flex-col justify-center items-center w-full h-full fade-in"
       ref={wrapper}
     ></div>
   );

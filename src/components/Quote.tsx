@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getRandomInt } from '../utils/random';
 
 interface QuoteProps {}
 const quotes = [
@@ -14,7 +15,7 @@ const quotes = [
   'a typescript addict',
 ];
 const getRandomQuote = () => {
-  const idx = Math.floor(Math.random() * quotes.length);
+  const idx = getRandomInt(0, quotes.length - 1);
   return quotes[idx];
 };
 const speed = 150;

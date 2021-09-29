@@ -1,9 +1,35 @@
 import * as React from 'react';
 import { Page } from '../components/Page';
 import { AboutPage } from '../components/sections/AboutPage';
+import { ContactPage } from '../components/sections/ContactPage';
+import { Footer } from '../components/sections/Footer';
 import { HomePage } from '../components/sections/HomePage';
+import { TechPage } from '../components/sections/TechPage';
 
 const App: React.FC = () => {
+  React.useEffect(() => {
+    const fadeInElements = document.querySelectorAll('.fade-in');
+    const options: IntersectionObserverInit = {
+      threshold: 0.5,
+    };
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const target = entry.target;
+        if (!entry.isIntersecting) {
+          target.classList.remove('show');
+          return;
+        }
+        target.classList.add('show');
+        //   appearOnScroll.unobserve(target);
+      });
+    }, options);
+
+    fadeInElements.forEach((el) => appearOnScroll.observe(el));
+
+    return () => {
+      appearOnScroll.disconnect();
+    };
+  }, []);
   return (
     <main>
       <div className="page-border border-top"></div>
@@ -18,18 +44,13 @@ const App: React.FC = () => {
         <AboutPage />
       </Page>
       <Page style={{ zIndex: 3 }}>
-        <div style={{ backgroundColor: '#181818', height: '100%' }}>
-          <h1>page 3</h1>
-          <img
-            src="https://media.sciencephoto.com/f0/23/19/34/f0231934-800px-wm.jpg"
-            alt=""
-          />
-        </div>
+        <TechPage />
       </Page>
-      <Page height="300px" style={{ zIndex: 3 }}>
-        <div style={{ backgroundColor: '#000', height: '300px' }}>
-          <h1>page 3</h1>
-        </div>
+      <Page style={{ zIndex: 4 }}>
+        <ContactPage />
+      </Page>
+      <Page height={'55px'} style={{ zIndex: 5 }}>
+        <Footer />
       </Page>
     </main>
   );
