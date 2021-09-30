@@ -1,180 +1,253 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html, body {
-   padding: 0;
-   margin: 0;
-   overflow-x: hidden;
+@import 'fonts.css';
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 * {
-   box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-   width: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-   background: #2B2C28;
+  background: #2b2c28;
 }
 
 ::-webkit-scrollbar-thumb {
-   background: #131515;
-   border-radius: 3px;
+  background: #131515;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-   background: #1a1d1d;
+  background: #1a1d1d;
+}
+
+.page-title {
+  /* prettier-ignore */
+  @apply absolute top-0 left-0 m-8 text-6xl md:text-8xl lg:text-9xl;
+}
+
+.page-text {
+  /* prettier-ignore */
+  @apply text-dark-100 text-3xl md:text-5xl text-center w-56 md:max-w-2xl md:w-auto fade-in;
+}
+
+.page-title.dark,
+.page-text.dark {
+  @apply text-dark-100;
+}
+
+.page-title.light,
+.page-text.light {
+  @apply text-light-200;
 }
 
 #home-page {
-   background-image: radial-gradient(circle at 0 0, rgba(51, 153, 137, 0.4), transparent 35%);
-   background-color: #181818;
+  background-image: radial-gradient(
+    circle at 0 0,
+    rgba(51, 153, 137, 0.4),
+    transparent 35%
+  );
+  background-color: #181818;
 }
 
 #tech-page {
-   background-image: radial-gradient(circle at 0 0, rgba(51, 153, 137, 0.4), transparent 35%), radial-gradient(circle at 100% 100%, rgba(83, 121, 156, 0.4), transparent 35%);
-   background-color: #181818;
+  background-image: radial-gradient(
+      circle at 0 0,
+      rgba(51, 153, 137, 0.4),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(83, 121, 156, 0.4),
+      transparent 35%
+    );
+  background-color: #181818;
 }
 
-#about-page, #contact-page {
-   background: radial-gradient(circle at 0 0, rgba(51, 153, 137, 1), transparent 70%), radial-gradient(circle at 0 100%, rgba(83, 121, 156, 1), transparent 70%), radial-gradient(circle at 100% 0, rgba(83, 121, 156, 1), transparent 70%), radial-gradient(circle at 100% 100%, rgba(51, 153, 137, 1), transparent 70%), #181818;
+#about-page,
+#contact-page {
+  background: radial-gradient(
+      circle at 0 0,
+      rgba(51, 153, 137, 1),
+      transparent 70%
+    ),
+    radial-gradient(circle at 0 100%, rgba(83, 121, 156, 1), transparent 70%),
+    radial-gradient(circle at 100% 0, rgba(83, 121, 156, 1), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(51, 153, 137, 1), transparent 70%),
+    #181818;
 }
 
 #quote:after {
-   content: '';
-   width: 15px;
-   height: 25px;
-   margin-left: 2px;
-   background: #a0a0a0;
-   opacity: 0;
-   display: inline-block;
-   animation: blink 0.5s infinite alternate;
+  content: '';
+  width: 15px;
+  height: 25px;
+  margin-left: 2px;
+  background: #a0a0a0;
+  opacity: 0;
+  display: inline-block;
+  animation: blink 0.5s infinite alternate;
 }
 
 @keyframes blink {
-   50% {
-      opacity: 0;
-   }
-   100% {
-      opacity: 1;
-   }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .custom-j:before {
-   content: 'j';
-   position: absolute;
-   color: #339989;
-   height: .3em;
-   overflow: hidden;
+  content: 'j';
+  position: absolute;
+  color: #339989;
+  height: 0.3em;
+  overflow: hidden;
 }
 
 .btn-wrap {
-   position: relative;
-   margin: 0 10px;
-   border-radius: 23px;
-   padding: 3px;
-   overflow: hidden;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+  position: relative;
+  margin: 0 10px;
+  border-radius: 23px;
+  padding: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-btn-border {
-   display: block;
-   position: absolute;
-   transform-origin: center center;
-   width: 100%;
-   padding-top: 100%;
-   /* ^^^ sets height equal width*/
-   background: rgb(83, 121, 156);
-   background: linear-gradient(90deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
-   animation: rotate linear 5s infinite;
+  display: block;
+  position: absolute;
+  transform-origin: center center;
+  width: 100%;
+  padding-top: 100%;
+  /* ^^^ sets height equal width*/
+  background: rgb(83, 121, 156);
+  background: linear-gradient(
+    90deg,
+    rgba(83, 121, 156, 1) 26%,
+    rgba(51, 153, 137, 1) 62%
+  );
+  animation: rotate linear 5s infinite;
 }
 
 @keyframes rotate {
-   0% {
-      transform: rotate(0deg)
-   }
-   25% {
-      transform: rotate(90deg)
-   }
-   75% {
-      transform: rotate(-90deg)
-   }
-   100% {
-      transform: rotate(0deg);
-   }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  75% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .main-btn {
-   position: relative;
-   padding: 5px 10px;
-   border-radius: 20px;
-   font-size: 20px;
-   font-family: Arial, Helvetica, sans-serif;
-   background: rgb(51, 153, 137);
-   background: linear-gradient(90deg, rgba(51, 153, 137, 1) 26%, rgba(83, 121, 156, 1) 62%);
-   transition: 0.2s all ease;
-   background-size: 150% 100%;
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: 'Consolas';
+  /*Arial, Helvetica, sans-serif;*/
+  background: rgb(51, 153, 137);
+  background: linear-gradient(
+    90deg,
+    rgba(51, 153, 137, 1) 26%,
+    rgba(83, 121, 156, 1) 62%
+  );
+  transition: 0.2s all ease;
+  background-size: 150% 100%;
 }
 
 .main-btn:hover {
-   background-position: 100%;
+  background-position: 100%;
 }
 
 .animation-wrap {
-   background: radial-gradient(circle, rgba(83, 121, 156, 0.4) 0%, transparent 50%);
+  background: radial-gradient(
+    circle,
+    rgba(83, 121, 156, 0.4) 0%,
+    transparent 50%
+  );
 }
 
 .page-border {
-   --border-width: 15px;
-   position: fixed;
-   z-index: 100;
+  --border-width: 15px;
+  position: fixed;
+  z-index: 100;
 }
 
 .border-top {
-   width: 100vw;
-   height: var(--border-width);
-   top: 0;
-   background: linear-gradient(90deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+  width: 100vw;
+  height: var(--border-width);
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(83, 121, 156, 1) 26%,
+    rgba(51, 153, 137, 1) 62%
+  );
 }
 
 .border-bottom {
-   width: 100vw;
-   height: var(--border-width);
-   bottom: 0;
-   background: linear-gradient(-90deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+  width: 100vw;
+  height: var(--border-width);
+  bottom: 0;
+  background: linear-gradient(
+    -90deg,
+    rgba(83, 121, 156, 1) 26%,
+    rgba(51, 153, 137, 1) 62%
+  );
 }
 
 .border-left {
-   height: 100vh;
-   width: var(--border-width);
-   left: 0;
-   background: linear-gradient(180deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+  height: 100vh;
+  width: var(--border-width);
+  left: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(83, 121, 156, 1) 26%,
+    rgba(51, 153, 137, 1) 62%
+  );
 }
 
 .border-right {
-   height: 100vh;
-   width: var(--border-width);
-   right: 0;
-   background: linear-gradient(0deg, rgba(83, 121, 156, 1) 26%, rgba(51, 153, 137, 1) 62%);
+  height: 100vh;
+  width: var(--border-width);
+  right: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(83, 121, 156, 1) 26%,
+    rgba(51, 153, 137, 1) 62%
+  );
 }
 
 .fade-in {
-   opacity: 0;
-   transform: scale(0.97);
-   transition: all ease-out;
-   transition-duration: 0.6s;
+  opacity: 0;
+  transform: scale(0.97);
+  transition: all ease-out;
+  transition-duration: 0.8s;
 }
 
 .fade-in.fade-fast {
-   transition-duration: 0.3s;
+  transition-duration: 0.4s;
 }
 
 .fade-in.show {
-   opacity: 1;
-   transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }

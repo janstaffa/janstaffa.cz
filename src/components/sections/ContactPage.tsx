@@ -15,11 +15,8 @@ export const ContactPage: React.FC = () => {
         className="w-full h-full flex flex-col justify-center items-center"
         style={{ boxShadow: '0px -5px 10px 2px rgba(0,0,0,0.4)' }}
       >
-        <h1 className="absolute top-0 left-0 m-8 text-9xl text-dark-100 fade-in fade-fast">
-          get in touch_
-        </h1>
-
-        <div className="flex flex-col text-dark-100 text-5xl fade-in">
+        <h1 className="page-title dark fade-in fade-fast">get in touch_</h1>
+        <div className="flex flex-col text-dark-100 text-2xl md:text-5xl fade-in">
           <a
             href="https://github.com/janstaffa"
             target="_blank"

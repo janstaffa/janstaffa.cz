@@ -67,7 +67,7 @@ export const Quote: React.FC<QuoteProps> = () => {
   return (
     <p
       id="quote"
-      className="mt-5 text-3xl font-consolas text-light-200 w-96 h-20"
+      className="mt-5 text-2xl sm:text-3xl font-consolas text-light-200 w-60 sm:w-96 h-20"
     >
       {currentQuote}
     </p>
