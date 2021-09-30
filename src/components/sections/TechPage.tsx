@@ -3,6 +3,7 @@ import React from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import {
   SiCss3,
+  SiGraphql,
   SiNodeDotJs,
   SiPhp,
   SiPython,
@@ -21,18 +22,17 @@ export const TechPage: React.FC = () => {
         className="w-full h-full flex flex-col justify-center items-center"
         style={{ boxShadow: '0px -5px 10px 2px rgba(0,0,0,0.4)' }}
       >
-        <h1 className="absolute top-0 left-0 m-8 text-9xl text-light-200 fade-in fade-fast">
-          what i do_
-        </h1>
+        <h1 className="page-title light fade-in fade-fast">what i do_</h1>
 
-        <p className="text-light-200 text-5xl text-center flex flex-row flex-wrap max-w-2xl fade-in">
-          <SiReact className="mx-2" />
-          <SiTypescript className="mx-2" />
-          <SiCss3 className="mx-2" />
-          <SiNodeDotJs className="mx-2" />
-          <SiPhp className="mx-2" />
-          <SiPython className="mx-2" />
-        </p>
+        <div className="text-light-200 text-3xl md:text-5xl flex flex-row justify-center flex-wrap w-56 md:w-auto md:max-w-2xl fade-in">
+          <SiReact className="m-2" />
+          <SiTypescript className="m-2" />
+          <SiNodeDotJs className="m-2" />
+          <SiGraphql className="m-2" />
+          <SiCss3 className="m-2" />
+          <SiPhp className="m-2" />
+          <SiPython className="m-2" />
+        </div>
         <div className="absolute bottom-10 w-full flex flex-row justify-center">
           <RiArrowDropDownLine
             color={'#a0a0a0'}

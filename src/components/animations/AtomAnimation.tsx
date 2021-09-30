@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { isPhone } from '../../utils/isPhone';
+
+//constants
+const electronRadius = 0.15;
+const electronOpacity = 0.8;
+const coreOpacity = 0.9;
+const canvasSize = 700;
 
 export const AtomAnimation: React.FC = () => {
   const wrapper = useRef<HTMLDivElement>(null);
-
-  //constants
-  const electronRadius = 0.15;
-  const electronOpacity = 0.8;
-  const coreOpacity = 0.9;
 
   //materials
   const electronMaterial = new THREE.MeshStandardMaterial({
@@ -40,12 +42,27 @@ export const AtomAnimation: React.FC = () => {
     return [x, y];
   };
   useEffect(() => {
+    if (!wrapper.current) return;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, 1 / 1, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: !isPhone(),
+    });
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
-    renderer.setSize(700, 700);
+
+    const resizeCanvas = () => {
+      const size = Math.min(window.innerHeight, window.innerWidth, canvasSize);
+      renderer.setSize(size, size);
+    };
+    resizeCanvas();
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < canvasSize) {
+        resizeCanvas();
+      }
+    });
     wrapper.current?.appendChild(renderer.domElement);
 
     //lights
@@ -122,8 +139,11 @@ export const AtomAnimation: React.FC = () => {
     //  scene.add(helper);
 
     camera.position.z = 5;
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableZoom = false;
+    if (!isPhone()) {
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableZoom = false;
+    }
+
     const animate = () => {
       requestAnimationFrame(animate);
       sphere.rotation.x += 0.005;
@@ -148,7 +168,7 @@ export const AtomAnimation: React.FC = () => {
   }, []);
   return (
     <div
-      className="animation-wrap z-0 flex flex-col justify-center items-center w-full h-full fade-in"
+      className="animation-wrap absolute xl:relative z-0 flex flex-col justify-center items-center w-full h-full fade-in"
       ref={wrapper}
     ></div>
   );

@@ -13,11 +13,9 @@ export const AboutPage: React.FC = () => {
         className="w-full h-full flex flex-col justify-center items-center"
         style={{ boxShadow: '0px -5px 10px 2px rgba(0,0,0,0.4)' }}
       >
-        <h1 className="absolute top-0 left-0 m-8 text-9xl text-dark-100 fade-in fade-fast">
-          about me_
-        </h1>
+        <h1 className="page-title dark fade-in fade-fast">about me_</h1>
 
-        <p className="text-dark-100 text-5xl text-center max-w-2xl fade-in">
+        <p className="page-text dark fade-in">
           i'm a 17 year old student, with passion in programming and tech.
         </p>
         <div className="absolute bottom-10 w-full flex flex-row justify-center">
