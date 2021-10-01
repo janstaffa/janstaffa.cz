@@ -13,6 +13,8 @@
     "autoprefixer": "^10.3.6",
     "babel": "^6.23.0",
     "babel-preset-next": "^1.4.0",
+    "front-matter": "^4.0.2",
+    "marked": "^3.0.4",
     "next": "^11.1.2",
     "postcss": "^8.3.8",
     "react": "17.0.2",
@@ -22,6 +24,7 @@
     "three": "^0.132.2"
   },
   "devDependencies": {
+    "@types/marked": "^3.0.1",
     "@types/react": "17.0.24",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",

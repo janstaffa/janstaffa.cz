@@ -30,6 +30,7 @@ const App: React.FC = () => {
       appearOnScroll.disconnect();
     };
   }, []);
+
   return (
     <main>
       <div className="page-border border-top"></div>

@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 @import 'fonts.css';
@@ -7,6 +7,8 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 * {
@@ -32,12 +34,12 @@ body {
 
 .page-title {
   /* prettier-ignore */
-  @apply absolute top-0 left-0 m-8 text-6xl md:text-8xl lg:text-9xl;
+  @apply absolute top-0 left-0 m-8 md:m-10 text-6xl md:text-8xl lg:text-9xl font-consolas;
 }
 
 .page-text {
   /* prettier-ignore */
-  @apply text-dark-100 text-3xl md:text-5xl text-center w-56 md:max-w-2xl md:w-auto fade-in;
+  @apply text-dark-100 text-3xl md:text-5xl text-center w-56 md:max-w-2xl md:w-auto fade-in font-roboto;
 }
 
 .page-title.dark,
@@ -59,7 +61,8 @@ body {
   background-color: #181818;
 }
 
-#tech-page {
+#tech-page,
+#notfound-page {
   background-image: radial-gradient(
       circle at 0 0,
       rgba(51, 153, 137, 0.4),
@@ -74,7 +77,8 @@ body {
 }
 
 #about-page,
-#contact-page {
+#contact-page,
+.blog-header {
   background: radial-gradient(
       circle at 0 0,
       rgba(51, 153, 137, 1),
@@ -106,12 +110,17 @@ body {
   }
 }
 
-.custom-j:before {
+.custom-j::before,
+.custom-j-small::before {
   content: 'j';
   position: absolute;
   color: #339989;
-  height: 0.3em;
+  height: 0.28em;
   overflow: hidden;
+}
+
+.custom-j-small::before {
+  height: 0.33em;
 }
 
 .btn-wrap {
@@ -161,6 +170,8 @@ body {
   position: relative;
   padding: 5px 10px;
   border-radius: 20px;
+  border: none;
+  cursor: pointer;
   font-size: 20px;
   font-family: 'Consolas';
   /*Arial, Helvetica, sans-serif;*/
@@ -250,4 +261,8 @@ body {
 .fade-in.show {
   opacity: 1;
   transform: scale(1);
+}
+
+.link {
+  @apply text-dark-100 no-underline hover:underline;
 }
