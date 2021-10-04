@@ -8,6 +8,7 @@ import path from 'path';
 
 export interface BlogPostMeta {
   id: number;
+  urlName: string;
   title: string;
   date: string;
 }
@@ -23,9 +24,12 @@ const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
       <Head>
         <title>janstaffa | Blog - {metadata.title}</title>
       </Head>
-      <div className="flex flex-col items-center w-full h-full">
-        <div className="blog-header w-full h-96 flex flex-col justify-center items-center">
-          <div className="fixed top-0 w-full h-16 bg-transparent bg-transparent-200 flex flex-row justify-between items-center px-3">
+      <div className="flex flex-col items-center w-full min-h-screen h-auto">
+        <div
+          id="blog-header"
+          className="w-full h-96 flex flex-col justify-center items-center"
+        >
+          <div className="fixed top-0 w-full h-16 bg-transparent bg-dark-100 flex flex-row justify-between items-center px-3">
             <div className="w-auto text-3xl font-roboto text-light-100">
               <Link href="/">
                 <a className="text-light-100 no-underline">
@@ -40,7 +44,7 @@ const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
             {metadata.title}
           </h1>
         </div>
-        <main className="flex flex-col items-center bg-dark-100 w-full h-full min-h-screen max-w-7xl">
+        <main className="blog-wrap flex flex-col bg-light-100 w-full h-full flex-1">
           <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
         </main>
       </div>
@@ -78,9 +82,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   const files = fs.readdirSync(path.join('posts'));
-  const paths = files.map((post) => ({
-    params: { id: post.replace('.md', '') },
-  }));
+
+  const paths = files.map((filename) => {
+    const post = fs.readFileSync(path.join('posts', filename), 'utf-8');
+    const { attributes } = fm<BlogPostMeta>(post);
+    return { params: { id: attributes.urlName } };
+  });
   return {
     paths,
     fallback: true,

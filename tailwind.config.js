@@ -19,6 +19,7 @@ module.exports = {
         light: {
           100: '#fffafb',
           200: '#a0a0a0',
+          300: '#cccccc',
         },
         transparent: {
           100: '#ffffff10',

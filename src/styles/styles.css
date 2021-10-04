@@ -78,7 +78,7 @@ body {
 
 #about-page,
 #contact-page,
-.blog-header {
+#blog-header {
   background: radial-gradient(
       circle at 0 0,
       rgba(51, 153, 137, 1),
@@ -88,6 +88,10 @@ body {
     radial-gradient(circle at 100% 0, rgba(83, 121, 156, 1), transparent 70%),
     radial-gradient(circle at 100% 100%, rgba(51, 153, 137, 1), transparent 70%),
     #181818;
+}
+
+#blog-header {
+  border-bottom: 10px solid #131515;
 }
 
 #quote:after {
@@ -265,4 +269,8 @@ body {
 
 .link {
   @apply text-dark-100 no-underline hover:underline;
+}
+
+.blog-wrap {
+  font-family: 'Open Sans', sans-serif;
 }
