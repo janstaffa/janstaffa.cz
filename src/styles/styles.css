@@ -274,3 +274,19 @@ body {
 .blog-wrap {
   font-family: 'Open Sans', sans-serif;
 }
+
+.posts-table tbody tr:nth-child(odd) {
+  background-color: #fffafb;
+}
+
+.posts-table tbody tr:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.posts-table tr td {
+  text-align: center;
+}
+
+.ql-toolbar {
+  background-color: white;
+}

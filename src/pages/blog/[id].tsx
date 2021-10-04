@@ -5,7 +5,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
-
+import 'quill/dist/quill.snow.css';
 export interface BlogPostMeta {
   id: number;
   urlName: string;
@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   const markdownWithMeta = fs.readFileSync(
-    path.join('posts', postName + '.md'),
+    path.join('posts', postName + '.html'),
     'utf-8'
   );
   const { attributes, body } = fm<BlogPostMeta>(markdownWithMeta);

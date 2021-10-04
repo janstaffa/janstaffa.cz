@@ -19,7 +19,7 @@ const NotFoundPage: React.FC = () => {
   return (
     <div
       id="notfound-page"
-      className="w-screen h-screen flex flex-col justify-center items-center"
+      className="w-screen h-screen flex flex-col justify-center items-center font-roboto"
     >
       <div className="text-light-200 text-center">
         <h1 className="text-6xl sm:text-9xl">404</h1>
