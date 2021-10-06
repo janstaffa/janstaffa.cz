@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { AtomAnimation } from '../animations/AtomAnimation';
@@ -28,7 +29,7 @@ export const HomePage: React.FC = () => {
           <div className="w-full absolute bottom-16 xl:relative mt-10 xl:bottom-0 flex flex-row">
             <div className="btn-wrap">
               <div className="main-btn-border"></div>
-              <button
+              <a
                 className="main-btn"
                 onClick={() => {
                   document
@@ -37,11 +38,13 @@ export const HomePage: React.FC = () => {
                 }}
               >
                 more
-              </button>
+              </a>
             </div>
             <div className="btn-wrap">
               <div className="main-btn-border"></div>
-              <button className="main-btn">blog</button>
+              <Link href="/blogs">
+                <a className="main-btn">blog</a>
+              </Link>
             </div>
           </div>
         </div>

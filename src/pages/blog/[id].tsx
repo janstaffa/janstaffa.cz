@@ -1,17 +1,13 @@
 import fm from 'front-matter';
 import fs from 'fs';
 import marked from 'marked';
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import path from 'path';
-import 'quill/dist/quill.snow.css';
-export interface BlogPostMeta {
-  id: number;
-  urlName: string;
-  title: string;
-  date: string;
-}
+import { BlogPostMeta } from '../..';
+import BlogNav from '../../components/BlogNav';
+
 interface BlogProps {
   blog: {
     metadata: BlogPostMeta;
@@ -19,6 +15,10 @@ interface BlogProps {
   };
 }
 const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Head>
@@ -29,17 +29,7 @@ const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
           id="blog-header"
           className="w-full h-96 flex flex-col justify-center items-center"
         >
-          <div className="fixed top-0 w-full h-16 bg-transparent bg-dark-100 flex flex-row justify-between items-center px-3">
-            <div className="w-auto text-3xl font-roboto text-light-100">
-              <Link href="/">
-                <a className="text-light-100 no-underline">
-                  <span className="custom-j-small">j</span>anstaffa
-                  <span className="text-primary">.</span>
-                </a>
-              </Link>{' '}
-              | Blog
-            </div>
-          </div>
+          <BlogNav />
           <h1 className="font-roboto text-dark-100 text-6xl">
             {metadata.title}
           </h1>
@@ -80,7 +70,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync(path.join('posts'));
 
   const paths = files.map((filename) => {

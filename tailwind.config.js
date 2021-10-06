@@ -8,6 +8,7 @@ module.exports = {
         rubik: ['Rubik', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
+        opensans: ['Open Sans', 'sans-serif'],
       },
       colors: {
         primary: '#339989',
@@ -15,6 +16,7 @@ module.exports = {
         dark: {
           100: '#131515',
           200: '#2b2c28',
+          300: '#222222',
         },
         light: {
           100: '#fffafb',
@@ -42,6 +44,22 @@ module.exports = {
           700: '#00000070',
           800: '#00000080',
           900: '#00000090',
+        },
+        grey: {
+          50: '#dddddd',
+          100: '#cccccc',
+          150: '#bbbbbb',
+          200: '#aaaaaa',
+          250: '#999999',
+          300: '#888888',
+          350: '#777777',
+          400: '#666666',
+          450: '#555555',
+          500: '#444444',
+          550: '#333333',
+          600: '#222222',
+          650: '#111111',
+          700: '#010101',
         },
       },
     },
