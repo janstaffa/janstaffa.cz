@@ -12,7 +12,10 @@ const BlogNav: React.FC<BlogNavProps> = () => {
             <span className="text-primary">.</span>
           </a>
         </Link>{' '}
-        | Blog
+        |{' '}
+        <Link href="/blogs">
+          <a className="text-light-100 no-underline">Blog</a>
+        </Link>
       </div>
     </div>
   );

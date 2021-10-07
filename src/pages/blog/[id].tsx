@@ -5,7 +5,10 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import path from 'path';
+import { useEffect, useState } from 'react';
+import { IoIosArrowDropupCircle } from 'react-icons/io';
 import { BlogPostMeta } from '../..';
+import { BlogFooter } from '../../components/BlogFooter';
 import BlogNav from '../../components/BlogNav';
 
 interface BlogProps {
@@ -19,6 +22,18 @@ const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+  const [showScrollDown, setShowScrollDown] = useState<boolean>(false);
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY === 0) {
+        setShowScrollDown(false);
+        return;
+      }
+      setShowScrollDown(true);
+    };
+    document.addEventListener('scroll', onScroll);
+    return () => document.removeEventListener('scroll', onScroll);
+  });
   return (
     <>
       <Head>
@@ -34,10 +49,26 @@ const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
             {metadata.title}
           </h1>
         </div>
-        <main className="blog-wrap flex flex-col bg-light-100 w-full h-full flex-1">
-          <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+        <main className="blog-content flex flex-col items-center bg-light-100 w-full h-full flex-1">
+          <div
+            dangerouslySetInnerHTML={{ __html: marked(content) }}
+            className="max-w-3xl px-4 py-10"
+          ></div>
         </main>
+        <BlogFooter />
       </div>
+      {showScrollDown && (
+        <div
+          className="fixed top-20 right-5 text-6xl text-dark-100 cursor-pointer"
+          title="Scroll to top"
+        >
+          <IoIosArrowDropupCircle
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        </div>
+      )}
     </>
   );
 };

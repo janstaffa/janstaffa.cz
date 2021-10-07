@@ -7,8 +7,7 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-  width: 100%;
-  height: 100%;
+  overflow-y: auto;
   @apply bg-dark-100;
 }
 
@@ -275,8 +274,11 @@ body {
   @apply text-dark-100 no-underline hover:underline;
 }
 
-.blog-wrap {
-  font-family: 'Open Sans', sans-serif;
+.blog-content {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.blog-content p {
+  @apply text-lg;
 }
 
 .posts-table tbody tr:nth-child(odd) {

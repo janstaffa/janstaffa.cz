@@ -5,9 +5,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import path from 'path';
 import { BlogPostMeta, BlogsList } from '../..';
-import BlogListItem from '../../components/BlogListItem';
-import BlogNav from '../../components/BlogNav';
-import TagBar from '../../components/TagBar';
+import Blogs from '../../components/sections/BlogsPage';
 
 const BlogsPage: NextPage<BlogsList> = ({ blogs, tags }) => {
   const router = useRouter();
@@ -19,24 +17,7 @@ const BlogsPage: NextPage<BlogsList> = ({ blogs, tags }) => {
       <Head>
         <title>janstaffa | Blogs</title>
       </Head>
-      <div className="w-screen h-screen" id="blogs-page">
-        <BlogNav />
-        <div className="mt-16 p-10">
-          <TagBar tags={tags} />
-          <div className="w-full h-full flex flex-row flex-wrap gap-5">
-            {blogs.map((blog) => (
-              <BlogListItem
-                title={blog.title}
-                description={blog.description}
-                tags={blog.tags}
-                thumbnail={blog.thumbnail}
-                urlName={blog.urlName}
-                key={blog.id}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Blogs blogs={blogs} tags={tags} />
     </>
   );
 };

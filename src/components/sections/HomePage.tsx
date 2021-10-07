@@ -36,6 +36,7 @@ export const HomePage: React.FC = () => {
                     .getElementById('about-page')
                     ?.scrollIntoView({ behavior: 'smooth' });
                 }}
+                title="Continue to site"
               >
                 more
               </a>
@@ -43,7 +44,9 @@ export const HomePage: React.FC = () => {
             <div className="btn-wrap">
               <div className="main-btn-border"></div>
               <Link href="/blogs">
-                <a className="main-btn">blog</a>
+                <a className="main-btn" title="Blog">
+                  blog
+                </a>
               </Link>
             </div>
           </div>
