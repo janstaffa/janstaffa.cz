@@ -17,11 +17,16 @@ interface BlogProps {
     content: string;
   };
 }
-const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
+const Blog: NextPage<BlogProps> = ({ blog }) => {
   const router = useRouter();
   if (router.isFallback) {
     return <div>Loading...</div>;
   }
+  if (!blog) {
+    router.replace('/blogs');
+    return null;
+  }
+  const { content, metadata } = blog;
   const [showScrollDown, setShowScrollDown] = useState<boolean>(false);
   useEffect(() => {
     const onScroll = () => {
