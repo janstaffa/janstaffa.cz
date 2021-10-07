@@ -37,7 +37,8 @@ const Blog: NextPage<BlogProps> = ({ blog: { metadata, content } }) => {
   return (
     <>
       <Head>
-        <title>janstaffa | Blog - {metadata.title}</title>
+        <title>Blog - {metadata.title} | janstaffa</title>
+        <meta name="description" content={metadata.description} />
       </Head>
       <div className="flex flex-col items-center w-full min-h-screen h-auto">
         <div
