@@ -19,12 +19,12 @@ export const Page: React.FC<PageProps> = ({
 
       if (bounding.y <= 0) {
         page.current.style.position = 'fixed';
-        page.current.style.top = '0';
+        page.current.style.top = '0px';
         return;
       }
       page.current.style.position = 'relative';
     };
-    document.addEventListener('scroll', onScroll);
+    document.addEventListener('scroll', () => onScroll());
     return () => document.removeEventListener('scroll', onScroll);
   }, []);
   return (

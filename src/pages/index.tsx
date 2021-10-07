@@ -1,13 +1,14 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+import { Footer } from '../components/Footer';
 import { Page } from '../components/Page';
 import { AboutPage } from '../components/sections/AboutPage';
 import { ContactPage } from '../components/sections/ContactPage';
-import { Footer } from '../components/sections/Footer';
 import { HomePage } from '../components/sections/HomePage';
 import { TechPage } from '../components/sections/TechPage';
 
 const App: React.FC = () => {
-  React.useEffect(() => {
+  useEffect(() => {
     const fadeInElements = document.querySelectorAll('.fade-in');
     const options: IntersectionObserverInit = {
       threshold: 0.5,
@@ -20,7 +21,6 @@ const App: React.FC = () => {
           return;
         }
         target.classList.add('show');
-        //   appearOnScroll.unobserve(target);
       });
     }, options);
 
@@ -30,6 +30,7 @@ const App: React.FC = () => {
       appearOnScroll.disconnect();
     };
   }, []);
+
   return (
     <main>
       <div className="page-border border-top"></div>

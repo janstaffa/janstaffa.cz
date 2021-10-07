@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
 @import 'fonts.css';
@@ -7,6 +7,8 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: auto;
+  @apply bg-dark-100;
 }
 
 * {
@@ -32,12 +34,12 @@ body {
 
 .page-title {
   /* prettier-ignore */
-  @apply absolute top-0 left-0 m-8 text-6xl md:text-8xl lg:text-9xl;
+  @apply absolute top-0 left-0 m-8 md:m-10 text-6xl md:text-8xl lg:text-9xl font-consolas;
 }
 
 .page-text {
   /* prettier-ignore */
-  @apply text-dark-100 text-3xl md:text-5xl text-center w-56 md:max-w-2xl md:w-auto fade-in;
+  @apply text-dark-100 text-3xl md:text-5xl text-center w-56 md:max-w-2xl md:w-auto fade-in font-roboto;
 }
 
 .page-title.dark,
@@ -59,7 +61,9 @@ body {
   background-color: #181818;
 }
 
-#tech-page {
+#tech-page,
+#notfound-page,
+#blogs-page {
   background-image: radial-gradient(
       circle at 0 0,
       rgba(51, 153, 137, 0.4),
@@ -74,7 +78,8 @@ body {
 }
 
 #about-page,
-#contact-page {
+#contact-page,
+#blog-header {
   background: radial-gradient(
       circle at 0 0,
       rgba(51, 153, 137, 1),
@@ -84,6 +89,10 @@ body {
     radial-gradient(circle at 100% 0, rgba(83, 121, 156, 1), transparent 70%),
     radial-gradient(circle at 100% 100%, rgba(51, 153, 137, 1), transparent 70%),
     #181818;
+}
+
+#blog-header {
+  border-bottom: 10px solid #131515;
 }
 
 #quote:after {
@@ -106,12 +115,17 @@ body {
   }
 }
 
-.custom-j:before {
+.custom-j::before,
+.custom-j-small::before {
   content: 'j';
   position: absolute;
   color: #339989;
-  height: 0.3em;
+  height: 0.28em;
   overflow: hidden;
+}
+
+.custom-j-small::before {
+  height: 0.33em;
 }
 
 .btn-wrap {
@@ -161,6 +175,8 @@ body {
   position: relative;
   padding: 5px 10px;
   border-radius: 20px;
+  border: none;
+  cursor: pointer;
   font-size: 20px;
   font-family: 'Consolas';
   /*Arial, Helvetica, sans-serif;*/
@@ -172,6 +188,8 @@ body {
   );
   transition: 0.2s all ease;
   background-size: 150% 100%;
+  text-decoration: none;
+  @apply text-dark-100;
 }
 
 .main-btn:hover {
@@ -250,4 +268,31 @@ body {
 .fade-in.show {
   opacity: 1;
   transform: scale(1);
+}
+
+.link {
+  @apply text-dark-100 no-underline hover:underline;
+}
+
+.blog-content {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.blog-content p {
+  @apply text-lg;
+}
+
+.posts-table tbody tr:nth-child(odd) {
+  background-color: #fffafb;
+}
+
+.posts-table tbody tr:nth-child(even) {
+  background-color: #cccccc;
+}
+
+.posts-table tr td {
+  text-align: center;
+}
+
+.ql-toolbar {
+  background-color: white;
 }

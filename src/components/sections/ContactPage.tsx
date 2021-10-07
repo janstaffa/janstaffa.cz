@@ -16,11 +16,11 @@ export const ContactPage: React.FC = () => {
         style={{ boxShadow: '0px -5px 10px 2px rgba(0,0,0,0.4)' }}
       >
         <h1 className="page-title dark fade-in fade-fast">get in touch_</h1>
-        <div className="flex flex-col text-dark-100 text-2xl md:text-5xl fade-in">
+        <div className="flex flex-col text-dark-100 text-2xl md:text-5xl fade-in font-roboto">
           <a
             href="https://github.com/janstaffa"
             target="_blank"
-            className="flex flex-row items-center my-1"
+            className="link flex flex-row items-center my-1"
           >
             <FaGithub className="mr-4" />
             janstaffa
@@ -28,7 +28,7 @@ export const ContactPage: React.FC = () => {
           <a
             href="mailto:jstaffa@janstaffa.cz"
             target="_blank"
-            className="flex flex-row items-center my-1"
+            className="link flex flex-row items-center my-1"
           >
             <HiOutlineMail className="mr-4" />
             jstaffa@janstaffa.cz
@@ -36,7 +36,7 @@ export const ContactPage: React.FC = () => {
           <a
             href="https://www.instagram.com/janstaffa"
             target="_blank"
-            className="flex flex-row items-center my-1"
+            className="link flex flex-row items-center my-1"
           >
             <FaInstagram className="mr-4" />
             janstaffa

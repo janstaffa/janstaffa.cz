@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { AtomAnimation } from '../animations/AtomAnimation';
@@ -14,13 +15,13 @@ export const HomePage: React.FC = () => {
         id="home-page"
         className="relative w-full h-full flex flex-row justify-between select-none"
       >
-        <div className="absolute right-8 bottom-8 text-3xl sm:text-4xl text-light-200 z-50">
+        <div className="absolute right-8 bottom-8 text-3xl sm:text-4xl z-50">
           <a href="https://github.com/janstaffa" target="_blank">
-            <FaGithub />
+            <FaGithub className="text-light-200" />
           </a>
         </div>
         <div className="px-10 py-12 sm:px-20 sm:py-24 z-10 fade-in fade-fast">
-          <h1 className="text-5xl sm:text-8xl text-light-100 font-rubik">
+          <h1 className="text-5xl sm:text-8xl text-light-100 font-poppins my-1">
             <span className="custom-j">j</span>anstaffa
             <span className="text-primary">.</span>
           </h1>
@@ -28,20 +29,25 @@ export const HomePage: React.FC = () => {
           <div className="w-full absolute bottom-16 xl:relative mt-10 xl:bottom-0 flex flex-row">
             <div className="btn-wrap">
               <div className="main-btn-border"></div>
-              <button
+              <a
                 className="main-btn"
                 onClick={() => {
                   document
                     .getElementById('about-page')
                     ?.scrollIntoView({ behavior: 'smooth' });
                 }}
+                title="Continue to site"
               >
                 more
-              </button>
+              </a>
             </div>
             <div className="btn-wrap">
               <div className="main-btn-border"></div>
-              <button className="main-btn">blog</button>
+              <Link href="/blogs">
+                <a className="main-btn" title="Blog">
+                  blog
+                </a>
+              </Link>
             </div>
           </div>
         </div>
