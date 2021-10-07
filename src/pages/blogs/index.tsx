@@ -15,7 +15,8 @@ const BlogsPage: NextPage<BlogsList> = ({ blogs, tags }) => {
   return (
     <>
       <Head>
-        <title>janstaffa | Blogs</title>
+        <title>Blogs | janstaffa</title>
+        <meta name="description" content="Discover my blogs." />
       </Head>
       <Blogs blogs={blogs} tags={tags} />
     </>

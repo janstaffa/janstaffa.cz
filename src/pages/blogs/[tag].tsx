@@ -16,7 +16,11 @@ const BlogsPage: NextPage<BlogsList> = ({ blogs, tags }) => {
   return (
     <>
       <Head>
-        <title>janstaffa | Blogs - {router.query.tag}</title>
+        <title>Blogs - {router.query.tag} | janstaffa</title>
+        <meta
+          name="description"
+          content={`Discover my blogs about ${router.query.tag || 'tech'}.`}
+        />
       </Head>
       <Blogs blogs={blogs} tags={tags} />
     </>

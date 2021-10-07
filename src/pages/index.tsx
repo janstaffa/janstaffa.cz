@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import * as React from 'react';
 import { useEffect } from 'react';
 import { Footer } from '../components/Footer';
@@ -32,28 +33,34 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <main>
-      <div className="page-border border-top"></div>
-      <div className="page-border border-bottom"></div>
-      <div className="page-border border-left"></div>
-      <div className="page-border border-right"></div>
+    <>
+      <Head>
+        <title>Home | janstaffa</title>
+        <meta name="description" content="My personal portfolio and blog." />
+      </Head>
+      <main>
+        <div className="page-border border-top"></div>
+        <div className="page-border border-bottom"></div>
+        <div className="page-border border-left"></div>
+        <div className="page-border border-right"></div>
 
-      <Page style={{ zIndex: 1 }}>
-        <HomePage />
-      </Page>
-      <Page style={{ zIndex: 2 }}>
-        <AboutPage />
-      </Page>
-      <Page style={{ zIndex: 3 }}>
-        <TechPage />
-      </Page>
-      <Page style={{ zIndex: 4 }}>
-        <ContactPage />
-      </Page>
-      <Page height={'55px'} style={{ zIndex: 5 }}>
-        <Footer />
-      </Page>
-    </main>
+        <Page style={{ zIndex: 1 }}>
+          <HomePage />
+        </Page>
+        <Page style={{ zIndex: 2 }}>
+          <AboutPage />
+        </Page>
+        <Page style={{ zIndex: 3 }}>
+          <TechPage />
+        </Page>
+        <Page style={{ zIndex: 4 }}>
+          <ContactPage />
+        </Page>
+        <Page height={'55px'} style={{ zIndex: 5 }}>
+          <Footer />
+        </Page>
+      </main>
+    </>
   );
 };
 export default App;
