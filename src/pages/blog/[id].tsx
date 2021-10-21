@@ -1,5 +1,7 @@
 import fm from 'front-matter';
 import fs from 'fs';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
 import marked from 'marked';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
@@ -39,10 +41,13 @@ const Blog: NextPage<BlogProps> = ({ blog }) => {
     document.addEventListener('scroll', onScroll);
     return () => document.removeEventListener('scroll', onScroll);
   });
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
   return (
     <>
       <Head>
-        <title>Blog - {metadata.title} | janstaffa</title>
+        <title>{metadata.title} | Blog - janstaffa</title>
         <meta name="description" content={metadata.description} />
       </Head>
       <div className="flex flex-col items-center w-full min-h-screen h-auto">
@@ -113,6 +118,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = files.map((filename) => {
     const post = fs.readFileSync(path.join('posts', filename), 'utf-8');
     const { attributes } = fm<BlogPostMeta>(post);
+    console.log(attributes);
     return { params: { id: attributes.urlName } };
   });
   return {
