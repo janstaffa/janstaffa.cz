@@ -1,0 +1,114 @@
+---
+id: '1'
+urlName: 'php-vs-nodejs'
+title: 'PHP vs Node.js'
+description: 'Comparing two of the most popular backend languages.'
+date: Thu Oct 21 2021
+thumbnail: '/images/php-vs-nodejs.png'
+tags: ['PHP', 'Node.js', 'backend']
+---
+  <img src="./node-vs-php.png" class="my-4" />
+  <p class="mt-5">
+    Hello, today I will be comparing two of the most used backend languages - PHP and JavaScript(<a
+      href="https://nodejs.org/">Node.js</a>). I will talk
+    about their advantages and disadvantages, as well as best use cases. But first I want to clarify what a backend
+    language is.
+  </p>
+
+  <h3 class="text-2xl mt-8 mb-5">1. What is a backend language</h3>
+  <p>
+    Backend, also server-side development is a portion of programming focused on storing and managing data like user
+    accounts, cookies, blog posts, etc. That data is then provided to a website through number of data transfer
+    protocols, the most common one is the <a href="https://developer.mozilla.org/docs/Web/HTTP" target="_blank">HTTP</a> protocol. So a
+    backend language has to be able to at least receive and
+    respond to user requests, communicate with a database and access the servers filesystem.
+  </p>
+
+  
+  <h3 class="text-2xl mt-8 mb-5">2. What will be rated</h3>
+  <ul>
+    <li>- performance</li>
+    <li>- simplicity</li>
+    <li>- syntax</li>
+    <li>- features</li>
+    <li>- hosting options</li>
+  </ul>
+
+  <h3 class="text-2xl mt-8 mb-5">3. The comparison</h3>
+  <h4 class="text-xl my-2">PHP</h2>
+    <p>
+      <a href="https://www.php.net/" target="_blank">PHP</a> is a web scripting language created in 1995 and is the most
+      used backend language today. It is so popular because of it's ease of use
+      and wide variety of features. However PHP is just a scripting language and it is not capable of running as a web
+      server by itself - you need <a href="https://apache.org/" target="_blank">Apache</a> or a different http server in order to use
+      it. This also removes some features like WebSocket communication or memory storage.
+    </p>
+
+    <h4 class="text-lg mt-5">Example PHP code:</h4>
+    <pre>
+      <code class="language-php">
+  &lt;?php
+    $message = "Hello world!";
+    echo $message;
+  ?&gt;
+        </code>
+      </pre>
+    <h5 class="text-lg">
+      Pros:
+    </h5>
+    <ul>
+      <li>- it is very easy to use</li>
+      <li>- it has many additional features out of the box</li>
+      <li>- it is easy to host for free</li>
+    </ul>
+
+    <h5 class="text-lg">
+      Cons:
+    </h5>
+    <ul>
+      <li>- it only runs when a request is made</li>
+      <li>- the syntax is unusual with lots of special characters</li>
+      <li>- it has inconsistent naming of functions and utilities</li>
+    </ul>
+    <h4 class="text-xl my-2">Node.js</h2>
+      <p><a href="https://nodejs.org/en/">Node.js</a> is a "JavaScript runtime environment" created in 2009. It uses
+        JavaScript as it's programming language.
+        Unlike PHP it works as an http server, so there is no need for additional software.</p>
+      <h4 class="text-lg mt-5">Example Node.js code:</h4>
+      <pre>
+      <code class="language-javascript">
+    const http = require('http');
+    const message = "Hello world!";
+
+    http.createServer((req, res) => {
+      res.write(message);
+      res.end();
+    }).listen(8080);
+        </code>
+      </pre>
+      <h5 class="text-lg">
+        Pros:
+      </h5>
+      <ul>
+        <li>- you don't need additional software for the http server</li>
+        <li>- it has a big community of developers supporting it and creating new packages</li>
+        <li>- it is written in JavaScript - you can use one language both on frontend and backend</li>
+      </ul>
+
+      <h5 class="text-lg">
+        Cons:
+      </h5>
+      <ul>
+        <li>- it is much more difficult to host online</li>
+        <li>- it is harder to start with </li>
+      </ul>
+
+      <h3 class="text-2xl mt-8 mb-5">4. Conclusion</h3>
+
+      <p>
+        I personally prefer Node.js, because it is more modern, I like JavaScript and I like to have low level control
+        over the http server. However it all depends on the project, you're building - if you're building a simple web
+        app, or website, I would probably recommend PHP, maybe even WordPress.
+      </p>
+
+      <h5 class="text-xl mt-8">Thank you for reading.</h5>
