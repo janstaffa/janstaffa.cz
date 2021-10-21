@@ -277,10 +277,21 @@ body {
 .blog-content {
   font-family: Arial, Helvetica, sans-serif;
 }
-.blog-content p {
+.blog-content p,
+.blog-content li {
   @apply text-lg;
 }
+.blog-content a {
+  color: black;
+  text-decoration: underline;
+}
 
+.blog-content code {
+  /* background-color: #ccc; */
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
 .posts-table tbody tr:nth-child(odd) {
   background-color: #fffafb;
 }
