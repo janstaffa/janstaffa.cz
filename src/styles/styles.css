@@ -290,6 +290,7 @@ body {
   /* background-color: #ccc; */
   border: 1px solid #999;
   display: block;
+  overflow-x: auto;
   padding: 20px;
 }
 .posts-table tbody tr:nth-child(odd) {

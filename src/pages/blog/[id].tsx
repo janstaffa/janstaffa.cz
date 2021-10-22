@@ -12,7 +12,6 @@ import { IoIosArrowDropupCircle } from 'react-icons/io';
 import { BlogPostMeta } from '../..';
 import { BlogFooter } from '../../components/BlogFooter';
 import BlogNav from '../../components/BlogNav';
-
 interface BlogProps {
   blog: {
     metadata: BlogPostMeta;
@@ -47,8 +46,13 @@ const Blog: NextPage<BlogProps> = ({ blog }) => {
   return (
     <>
       <Head>
-        <title>{metadata.title} | Blog - janstaffa</title>
+        <title>{metadata.title} | janstaffa</title>
         <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.tags?.join(',')} />
+
+        <meta property="og:title" content={metadata.title + '| janstaffa'} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.thumbnail} />
       </Head>
       <div className="flex flex-col items-center w-full min-h-screen h-auto">
         <div
@@ -101,11 +105,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       blog: {
-        metadata: {
-          id: attributes.id,
-          title: attributes.title,
-          date: attributes.date,
-        } as BlogPostMeta,
+        metadata: attributes,
         content: body,
       },
     },
@@ -116,10 +116,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync(path.join('posts'));
 
   const paths = files.map((filename) => {
-    const post = fs.readFileSync(path.join('posts', filename), 'utf-8');
-    const { attributes } = fm<BlogPostMeta>(post);
-    console.log(attributes);
-    return { params: { id: attributes.urlName } };
+    //  const post = fs.readFileSync(path.join('posts', filename), 'utf-8');
+    //  const { attributes } = fm<BlogPostMeta>(post);
+
+    const urlName = filename
+      .replace('.html', '')
+      .replace(/\s+/g, '-')
+      .toLowerCase();
+    return { params: { id: urlName } };
   });
   return {
     paths,

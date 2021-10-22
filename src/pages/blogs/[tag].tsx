@@ -50,6 +50,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       tag.replace(/\s+/g, '-').toLowerCase()
     );
     if (formatedTags.includes(tag)) {
+      const urlName = filename
+        .replace('.html', '')
+        .replace(/\s+/g, '-')
+        .toLowerCase();
+      attributes.urlName = urlName;
       blogs.push(attributes);
     }
   });

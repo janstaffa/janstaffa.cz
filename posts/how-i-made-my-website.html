@@ -1,0 +1,119 @@
+---
+id: '2'
+title: 'How I made my website'
+description: 'Going over how I made my website, all the technologies I used and the decisons I made.'
+date: Thu Oct 21 2021
+thumbnail: '/images/how-i-made-my-website.png'
+tags: ['Tutorial', 'Next.js']
+---
+
+
+<p class="my-10">Hello, in this post I will tell you about how I made my website and this blog page. I will go over
+   all the
+   technologies I used and the reasoning behind them. Let's go!
+</p>
+<img src="/images/how-i-made-my-website.png" alt="Blog banner code image." class="w-full h-auto" />
+<h3 class="text-3xl mt-10">1. Why</h3>
+<p class="my-10">
+   My website went through a number of iterations over the years. Some of them I'm more proud of than
+   others.😁 But one thing was common for all of them - they were never finished! And when someone asked me for a
+   contact or wanted to see my work I didn't really have a place to direct them to. So with my increasing knowledge
+   of web development I decided it was time to change this and this website was created. I then also created this
+   blog page to share my coding adventures.
+</p>
+
+<h3 class="text-3xl mt-10">2. The stack</h3>
+<p class="mt-10">
+   I knew I wanted a <a href="https://reactjs.org/" target="_blank">React</a> framework of some sort
+   capable of SSG(static site generation). Initially, I wanted to try out <a href="https://www.gatsbyjs.com/"
+      target="_blank">Gatsby.js</a>, since it was new to me. But I wasn't really keen on the environment and the
+   disability to use SSR(server side rendering). So I went with <a href="https://nextjs.org/"
+      target="_blank">Next.js</a> in which I had some experience, which turned out to be a great choice.
+</p>
+<p class="mt-2">
+   I love utility first CSS libraries, they save time and make your styles cleaner. My personal
+   favourite is <a href="https://tailwindcss.com/" target="_blank">Tailwindcss</a>, which is what I used here.
+</p>
+<p class="mt-2">
+   A big decision was to not use a database for storing blog posts. I figured that since the entire website is
+   generated at build time storing metadata at the beginning of each post will work, more on this later. So far, this
+   has been working perfectly fine.
+</p>
+
+<h3 class="text-3xl mt-10">3. How does the blog work</h3>
+<p class="my-10">
+   As I already mentioned I didn't use a database to store the individual blog posts, instead each post
+   has its own html file containing all the necessary metadata in a kind of header as well as the content itself.
+   Let's take a look at an example post created this way.
+</p>
+
+<h4 class="text-xl">Example blog post:</h4>
+<pre>
+   <code class="language-html">
+   ---
+   id: 1
+   title: 'Awesome post'
+   description: 'this is a great description'
+   date: Wed Oct 06 2021
+   ...
+   ---
+   &lt;h2&gt;Awesome post&lt;/h2&gt;
+   &lt;p&gt;Eu cillum aliquip deserunt ipsum sunt ut fugiat 
+   minim in laboris commodo Lorem non.&lt;/p&gt;
+   </code>
+</pre>
+
+<p>It's simple, the part beginning and ending with --- is the header and the rest is the content of the post.</p>
+
+<p class="my-5">During build time, Next.js then goes through all the blog files and gets the header information and
+   content, which is then injected into a blog template and rendered. To get the metadata I used a JS library called
+   <a href="https://www.npmjs.com/package/front-matter" target="_blank">front-matter</a>.
+</p>
+<h4 class="text-xl">This is roughly how that works:</h4>
+<pre>
+   <code class="language-javascript">
+   import * as fm from 'front-matter';
+   // Next.js GetStaticProps function
+   const getStaticProps = async ({ params }) => {
+      // get post id from url
+      const postName = params.id;
+      // find the html file containing the blog by id
+      // then use fs to read the content of the file
+      const markdownWithMeta = fs.readFileSync(
+         path.join('posts', postName + '.html'), 
+         'utf-8'
+      );
+      // extract the header and body of the blog
+      // from the file using front-matter
+      const { attributes, body } = fm(markdownWithMeta);
+      // pass the data to the Next.js renderer
+      return {
+         props: {
+            blog: {
+               metadata: {
+                  id: attributes.id,
+                  title: attributes.title
+                  date: attributes.date,
+               },
+               content: body,
+            },
+         },
+      };
+   };
+   </code>
+</pre>
+
+<p>Once the renderer recieves the data, it can fill stuff like the page title, description and image as well as the
+   blog content itself. Then it can render the page.</p>
+
+<h3 class="text-3xl mt-10">4. The hosting</h3>
+<p class="mt-10">
+   I chose <a href="https://vercel.com" target="_blank">Vercel</a> to host the project, because it offers
+   great compatibility with Next.js, linking my domain was very simple and it's all for free.
+</p>
+
+<h3 class="text-3xl mt-10">5. Final thoughts</h3>
+<p>I'm overall very happy with how the website turned out, the entire project took me around a week to finish. I'm also
+   very
+   excited to start posting more blogs and I'm curious to see if my blog system ever breaks.</p>
+<h5 class="text-xl mt-8">Thank you for reading.</h5>
