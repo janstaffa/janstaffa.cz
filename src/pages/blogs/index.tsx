@@ -37,6 +37,11 @@ export const getStaticProps: GetStaticProps = async () => {
         tags.push(...newTags);
       }
     }
+    const urlName = filename
+      .replace('.html', '')
+      .replace(/\s+/g, '-')
+      .toLowerCase();
+    attributes.urlName = urlName;
     return attributes;
   });
 
