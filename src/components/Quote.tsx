@@ -10,9 +10,9 @@ const quotes = [
   'a stargate fan',
   'a fullstack developer',
   'a future millionaire ;)',
-  'a windows user, but linux lover',
-  'a ben awad fan',
-  'a typescript addict',
+  'a typescript lover',
+  'a Rust lover',
+  'a student'
 ];
 const getRandomQuote = () => {
   const idx = getRandomInt(0, quotes.length - 1);
