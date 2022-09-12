@@ -22,7 +22,6 @@ export const ContactPage: React.FC = () => {
           <FaGithub className="mr-4" />
           janstaffa
         </a>
-        <script
          {window != undefined && (
          <a
           href={"mailto:"+email}
