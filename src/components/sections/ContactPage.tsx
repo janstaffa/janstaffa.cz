@@ -2,6 +2,8 @@ import React from 'react';
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import { RiArrowDropUpLine } from 'react-icons/ri';
+import { isServer } from '../../utils/isPhone';
+
 export const ContactPage: React.FC = () => {
   const email = "jstaffa@janstaffa.cz";
   const instagram = "https://www.instagram.com/janstaffa";
@@ -21,7 +23,9 @@ export const ContactPage: React.FC = () => {
           <FaGithub className="mr-4" />
           janstaffa
         </a>
-        <a
+        <script
+         {!isServer() && (
+         <a
           href={"mailto:"+email}
           target="_blank"
           className="link flex flex-row items-center my-1"
@@ -37,6 +41,7 @@ export const ContactPage: React.FC = () => {
           <FaInstagram className="mr-4" />
           janstaffa
         </a>
+        )}
       </div>
       <div className="absolute bottom-10 w-full flex flex-row justify-center">
         <RiArrowDropUpLine
