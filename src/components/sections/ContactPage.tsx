@@ -2,7 +2,6 @@ import React from 'react';
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import { RiArrowDropUpLine } from 'react-icons/ri';
-import { isServer } from '../../utils/isPhone';
 
 export const ContactPage: React.FC = () => {
   const email = "jstaffa@janstaffa.cz";
@@ -24,7 +23,7 @@ export const ContactPage: React.FC = () => {
           janstaffa
         </a>
         <script
-         {!isServer() && (
+         {process.browser && (
          <a
           href={"mailto:"+email}
           target="_blank"
