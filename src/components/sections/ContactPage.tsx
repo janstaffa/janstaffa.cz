@@ -3,6 +3,8 @@ import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import { RiArrowDropUpLine } from 'react-icons/ri';
 export const ContactPage: React.FC = () => {
+  const email = "jstaffa@janstaffa.cz";
+  const instagram = "https://www.instagram.com/janstaffa";
   return (
     <div
       id="contact-page"
@@ -20,15 +22,15 @@ export const ContactPage: React.FC = () => {
           janstaffa
         </a>
         <a
-          href="mailto:jstaffa@janstaffa.cz"
+          href={"mailto:"+email}
           target="_blank"
           className="link flex flex-row items-center my-1"
         >
           <HiOutlineMail className="mr-4" />
-          jstaffa@janstaffa.cz
+          {email}
         </a>
         <a
-          href="https://www.instagram.com/janstaffa"
+          href={instagram}
           target="_blank"
           className="link flex flex-row items-center my-1"
         >
