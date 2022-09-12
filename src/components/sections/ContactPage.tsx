@@ -23,7 +23,7 @@ export const ContactPage: React.FC = () => {
           janstaffa
         </a>
         <script
-         {process.browser && (
+         {window != undefined && (
          <a
           href={"mailto:"+email}
           target="_blank"
