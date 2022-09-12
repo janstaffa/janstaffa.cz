@@ -23,7 +23,8 @@ export const ContactPage: React.FC = () => {
           janstaffa
         </a>
          {window != undefined && (
-         <a
+         <>
+          <a
           href={"mailto:"+email}
           target="_blank"
           className="link flex flex-row items-center my-1"
@@ -39,6 +40,7 @@ export const ContactPage: React.FC = () => {
           <FaInstagram className="mr-4" />
           janstaffa
         </a>
+        </>
         )}
       </div>
       <div className="absolute bottom-10 w-full flex flex-row justify-center">
