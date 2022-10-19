@@ -10,7 +10,7 @@ export const AboutPage: React.FC = () => {
       <h1 className="page-title dark fade-in fade-fast">about me_</h1>
 
       <p className="page-text dark fade-in">
-        i'm a 17 year old student, with passion in programming and tech.
+        i'm an 18 year old student, with passion in programming and tech.
       </p>
       <div className="absolute bottom-10 w-full flex flex-row justify-center">
         <RiArrowDropDownLine
