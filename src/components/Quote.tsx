@@ -4,15 +4,13 @@ import { getRandomInt } from '../utils/random';
 interface QuoteProps {}
 const quotes = [
   'a web developer',
-  'a french horn player',
+  'a musician',
   'a server programmer',
   'a gamer',
-  'a stargate fan',
   'a fullstack developer',
   'a future millionaire ;)',
-  'a typescript lover',
-  'a Rust lover',
-  'a student'
+  'a student',
+  'an AI developer'
 ];
 const getRandomQuote = () => {
   const idx = getRandomInt(0, quotes.length - 1);
