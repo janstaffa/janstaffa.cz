@@ -1,13 +1,13 @@
 import React from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import {
-  SiCss3,
-  SiGraphql,
+  SiAndroid,
+  SiDocker,
+  SiKotlin,
   SiNodeDotJs,
-  SiPhp,
   SiPython,
   SiReact,
-  SiTypescript,
+  SiTypescript
 } from 'react-icons/si';
 export const TechPage: React.FC = () => {
   return (
@@ -22,10 +22,10 @@ export const TechPage: React.FC = () => {
         <SiReact className="m-2" />
         <SiTypescript className="m-2" />
         <SiNodeDotJs className="m-2" />
-        <SiGraphql className="m-2" />
-        <SiCss3 className="m-2" />
-        <SiPhp className="m-2" />
         <SiPython className="m-2" />
+        <SiAndroid className="m-2"/>
+        <SiKotlin className="m-2"/>
+        <SiDocker className="m-2"/>
       </div>
       <div className="absolute bottom-10 w-full flex flex-row justify-center">
         <RiArrowDropDownLine
